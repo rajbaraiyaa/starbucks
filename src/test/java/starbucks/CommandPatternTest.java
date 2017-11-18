@@ -18,6 +18,7 @@ import org.junit.Test;
 public class CommandPatternTest
 {
     IApp app ;
+    IOrientationStrategy f;
     
     /**
      * Default constructor for test class CommandPatternTest
@@ -35,16 +36,20 @@ public class CommandPatternTest
     public void setUp()
     {
         app = new AppAuthProxy() ;
+        
     }
 
 
     @Test
     public void testMyCards()
     {
-        // Login with pin
+        app.touch(1, 5);
+        app.touch(2, 5);
+        app.touch(3, 5);
+        app.touch(4, 5);
 
         // Select Menu "A"
- 
+        app.execute("A");
         // Assertion
         assertEquals("MyCards", app.screen());            
     }
@@ -55,6 +60,13 @@ public class CommandPatternTest
         // Login with pin
 
         // Select Menu "B"
+    		app.touch(1, 5);
+        app.touch(2, 5);
+        app.touch(3, 5);
+        app.touch(4, 5);
+
+        // Select Menu "A"
+        app.execute("B");
  
         // Assertion
         assertEquals("Payments", app.screen());            
@@ -65,7 +77,13 @@ public class CommandPatternTest
     {
         assertEquals("PinScreen", app.screen());
         // Login with pin
+        app.touch(1, 5);
+        app.touch(2, 5);
+        app.touch(3, 5);
+        app.touch(4, 5);
 
+        // Select Menu "A"
+        app.execute("C");
         // Select Menu "C"
  
         // Assertion 
@@ -78,7 +96,13 @@ public class CommandPatternTest
         // Login with pin
 
         // Select Menu "D"
- 
+	  app.touch(1, 5);
+      app.touch(2, 5);
+      app.touch(3, 5);
+      app.touch(4, 5);
+
+      // Select Menu "A"
+      app.execute("D");
         // Assertion 
         assertEquals("Store", app.screen());            
     }
